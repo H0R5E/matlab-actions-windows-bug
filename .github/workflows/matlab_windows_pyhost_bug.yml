@@ -9,8 +9,6 @@ on:
 jobs:
   main:
     runs-on: 'windows-latest'
-    env:
-      mhkit-python-dir: 'MHKiT-Python'
     steps:
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v1
