@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
+      - name: Run Python
+        run: python -c "print('Hello World!')"
       - name: Create MATLAB batch command
         shell: bash
         run: echo "COMMAND=pyenv('ExecutionMode', 'OutOfProcess'), 
