@@ -2,9 +2,9 @@ name: MATLAB Windows OutOfProcess Bug
 
 on:
   push:
-    branches: [ github_actions ]
+    branches: [ main ]
   pull_request:
-    branches: [ github_actions ]
+    branches: [ main ]
 
 jobs:
   main:
