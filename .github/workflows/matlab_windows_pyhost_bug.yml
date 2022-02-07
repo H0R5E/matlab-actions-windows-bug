@@ -1,0 +1,27 @@
+name: MATLAB Windows OutOfProcess Bug
+
+on:
+  push:
+    branches: [ github_actions ]
+  pull_request:
+    branches: [ github_actions ]
+
+jobs:
+  main:
+    runs-on: 'windows-latest'
+    env:
+      mhkit-python-dir: 'MHKiT-Python'
+    steps:
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Create MATLAB batch command
+        shell: bash
+        run: echo "COMMAND=pyenv('ExecutionMode', 'OutOfProcess'), 
+          py.list({'Monday','Tuesday','Wednesday','Thursday','Friday'})" >> "$GITHUB_ENV"
+      - name: Run command
+        run: matlab -batch "${{ env.COMMAND }}"
+
