@@ -18,10 +18,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      - name: Create MATLAB batch command
+      - name: Create MATLAB script
         run: |
           "pyenv('ExecutionMode', 'OutOfProcess')" | Out-File -FilePath run.m
           "py.list({'Monday','Tuesday','Wednesday','Thursday','Friday'})" | Out-File -FilePath run.m -Append
-      - name: Run command
+      - name: Run script
         run: matlab -batch "run"
 
