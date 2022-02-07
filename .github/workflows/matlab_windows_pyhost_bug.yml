@@ -27,7 +27,8 @@ jobs:
         run: matlab -batch "${{ env.COMMAND }}"
       - name: Create MATLAB batch command
         shell: bash
-        run: echo "COMMAND=py.list({'Monday','Tuesday','Wednesday','Thursday','Friday'})" >> "$GITHUB_ENV"
+        run: echo "COMMAND=py.list({'Monday','Tuesday','Wednesday','Thursday','Friday'}),
+          pyenv" >> "$GITHUB_ENV"
       - name: Run command
         run: matlab -batch "${{ env.COMMAND }}"
 
